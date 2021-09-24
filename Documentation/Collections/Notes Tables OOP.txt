@@ -1,0 +1,9 @@
+-l'affichage de la variable qui déclaré donne l'adresse , il faut retenir que la varible c'est la référence.
+
+-la table multidimensionnelle : qui admet des Colognes & lignes.
+
+-la table irrégulière : est une table à 1 ligne ou chaque case contient des tables à des longueurs différentes.
+
+- equals : est concerner qu'a avec les chaînes de caractères & objets & les tableaux
+
+- equals : toute foix , equals compare les références.
