@@ -1,0 +1,1 @@
+# This repository contains some of my academic Java projects, exercises, documentations, and advanced software architectures such as pipe and filter and automata.
