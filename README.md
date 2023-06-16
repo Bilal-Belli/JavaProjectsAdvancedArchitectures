@@ -4,7 +4,12 @@ This repository contains some of my academic Java projects, exercises, documenta
 
 It contains several Java programs that showcase my journey with the language from the beginning until now.
 
-#### PIPE & FILTER Calculator (Demo)
+### PIPE & FILTER Calculator (Demo)
 <div align="center">
    <img src="https://github.com/Bilal-Belli/JavaProjectsAdvancedArchitectures/assets/74218805/88c353eb-644a-4b8a-8ef3-d0ceb27135aa">
+</div>
+
+### Restful API Operations Store (Demo)
+<div align="center">
+   <img src="https://github.com/Bilal-Belli/JavaProjectsAdvancedArchitectures/assets/74218805/8114a5a0-9075-4f59-addd-1ce0165504d3">
 </div>
