@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TP AL - REST</title>
+</head>
+<body>
+    <h1>Tester les requêtes REST</h1>
+    <button onclick="sendGetRequest()">GET</button>
+    <h2>Ajouter un article au panier</h2>
+    <form onsubmit="sendPostRequest(event)">
+        <label for="itemId">ID de l'article:</label>
+        <input type="text" id="itemId" name="itemId" required><br>
+        <label for="itemName">Nom de l'article:</label>
+        <input type="text" id="itemName" name="itemName" required><br>
+        <label for="quantity">Quantité:</label>
+        <input type="number" id="quantity" name="quantity" required><br>
+        <label for="price">Prix:</label>
+        <input type="number" step="0.01" id="price" name="price" required><br>
+        <input type="submit" value="Ajouter">
+    </form>
+    <h2>Supprimer un article du panier</h2>
+    <form onsubmit="sendDeleteRequest(event)">
+        <label for="deleteItemId">ID de l'article à supprimer:</label>
+        <input type="text" id="deleteItemId" name="deleteItemId" required><br>
+        <input type="submit" value="Supprimer">
+    </form>
+    <script>
+        function sendGetRequest() {
+        fetch('/api/shopCarts')
+            .then(response => response.json())
+            .then(data => {
+            console.log(data); // Afficher la réponse dans la console
+            })
+            .catch(error => console.error(error));
+        }
+        function sendPostRequest(event) {
+        event.preventDefault();
+        const itemId = document.getElementById('itemId').value;
+        const itemName = document.getElementById('itemName').value;
+        const quantity = document.getElementById('quantity').value;
+        const price = document.getElementById('price').value;
+        const requestBody = {
+            itemId,
+            itemName,
+            quantity: parseInt(quantity),
+            price: parseFloat(price)
+        };
+        fetch('/api/shopCarts/items', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        })
+            .then(response => response.json())
+            .then(data => {
+            console.log(data); // Afficher la réponse dans la console
+            })
+            .catch(error => console.error(error));
+        }
+        function sendDeleteRequest(event) {
+        event.preventDefault();
+        const deleteItemId = document.getElementById('deleteItemId').value;
+        fetch(`/api/shopCarts/items/${deleteItemId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(data => {
+            console.log(data); // Afficher la réponse dans la console
+            })
+            .catch(error => console.error(error));
+        }
+    </script>
+</body>
+</html>
